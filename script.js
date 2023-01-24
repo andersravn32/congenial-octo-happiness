@@ -1,4 +1,4 @@
-const ALFABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const ALFABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase().split("");
 
 const caesar = {
   encrypt(input) {
@@ -47,11 +47,46 @@ const caesar = {
   },
 };
 
-const viginere = {
-  encrypt(input) {},
+const vigenere = {
+  encrypt(input, key) {
+    let result = "";
 
-  decrypt(input) {},
+    // Get position of characters in key
+    let keyPositions = key.split("").map((char) => {
+      return ALFABET.indexOf(char.replace(" ", "").toLowerCase());
+    });
+
+    let inputPositions = input.split("").map((char) => {
+      return ALFABET.indexOf(char.replace(" ", "").toLowerCase());
+    });
+
+    // Define CURRENT position of key
+    let keyPos = 0;
+
+    inputPositions.forEach((pos) => {
+      if (keyPos == keyPositions.length) {
+        keyPos = 0;
+      }
+
+      let newPos = 0;
+      if (pos + keyPositions[keyPos] >= ALFABET.length) {
+        newPos = pos + keyPositions[keyPos] - ALFABET.length;
+      } else {
+        newPos = pos + keyPositions[keyPos];
+      }
+
+      // Append results
+      result += ALFABET[newPos];
+
+      // Increment key position
+      keyPos++;
+    });
+
+    // Return result
+    return result;
+  },
+
+  decrypt(input, key) {},
 };
 
-caesar.encrypt("Hello world");
-caesar.decrypt("ABCD");
+vigenere.encrypt("hello world", "hello");
