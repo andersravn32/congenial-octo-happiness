@@ -1,13 +1,14 @@
+# OPGAVER 
 
 
-Opgave 1.3:
+## Opgave 1.4 - Del 3:
 
 Iuhnyhqvdqdobvh
 
 Dekrypteres til:
 Frekvensanalyse
 
-Opgave 1.4:
+## Opgave 1.4 - Del 4:
 
 MQT xv rx nhkobbbxewr pwk
 
