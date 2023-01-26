@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <script src="script.js"></script>
+    <form>
+        <div id="form-hash" class="form-inner">
+            <label>Input</label>
+            <input id="hash-input" type="text" placeholder="Indtast tekst til hashing" />
+            <label>Hashing Metode</label>
+            <select>
+                <option value="SHA256">Vælg en hashing metode</option>
+                <option disabled>--------------------------</option>
+            </select>
+            <button>Hash</button>
+            <label>Output</label>
+            <textarea id="hash-output" disabled></textarea>
+        </div>
+    </form>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script defer src="script.js"></script>
 </body>
+
 </html>
