@@ -1,19 +1,8 @@
-# OPGAVER 
+# OPGAVER - 26/01 - 2023
 
+### Opgave 2.2 - Del 2, OTP's
+Besvarelsen ligger under OTP objektet i script.js
 
-## Opgave 1.4 - Del 3:
-
-Iuhnyhqvdqdobvh
-
-Dekrypteres til:
-Frekvensanalyse
-
-## Opgave 1.4 - Del 4:
-
-MQT xv rx nhkobbbxewr pwk
-
-Dekrypteres til:
-CIA er en forkortelse for
-
-Afslutning:
-MQT xv rx nhkobbbxewr pwk: Vsapqwxrgsiebxl, Svmxkesbr, hk nfibeeostbmc
+### Opgave 2.2 - Del 3, CryptoJS
+CryptoJS loades gennem CDN.
+Har lavet et simpelt interface som afspejler functionalitet fra CryptoJS i cryptoMethods objektet
