@@ -1,3 +1,10 @@
+const $ = (foo) => {
+  if (document.querySelectorAll(foo).length <= 1){
+    return document.querySelector(foo);
+  }
+  return document.querySelectorAll(foo)
+}
+
 const ALFABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase().split("");
 
 const caesar = {
@@ -90,3 +97,66 @@ const vigenere = {
 };
 
 vigenere.encrypt("hello world", "hello");
+
+const chars =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
+
+const OTP = {
+  generate: (length = 32, amount = 1) => {
+    // Define array for storing OTP's
+    let otps = [];
+
+    // Repeat x amount of times
+    for (let i = 0; i < amount; i++) {
+      let res = "";
+
+      // Generate OTP using Math random
+      for (let i = 0; i < length; i++) {
+        res += chars[Math.floor(Math.random() * chars.length)];
+      }
+
+      // Push OTP to array
+      otps.push(res);
+
+      // Reset
+      res = "";
+    }
+
+    // Return OTP's as array
+    return otps;
+  },
+};
+
+const cryptoMethods = [
+  {
+    name: "SHA256",
+    func: CryptoJS.SHA256
+  },
+  {
+    name: "SHA512",
+    func: CryptoJS.SHA512
+  },
+  {
+    name: "MD5",
+    func: CryptoJS.MD5
+  },
+]
+
+cryptoMethods.forEach((method) => {
+  $("#form-hash").querySelector("select").innerHTML += `<option value="${method.name}">${method.name}</option>`
+});
+
+$("#form-hash").querySelector("button").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (!$("#hash-input").value.length){
+    return alert("Please enter an input")
+  }
+
+  const selectedMethod = cryptoMethods.filter((method) => {
+    return method.name == $("#form-hash").querySelector("select").value;
+  })[0]
+
+  $("#hash-output").value = selectedMethod.func($("#hash-input").value).toString();
+  $("#hash-input").value = "";
+})
